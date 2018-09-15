@@ -67,6 +67,12 @@
                         x.innerHTML = "Geolocation is not supported by this browser.";
                     }
                 }
+                OmniMapOn = true;
+                function toggleLayer10() {
+                if(OmniMap) { OmniMap.setOptions({map: null}); }
+                if(!OmniMap) { OmniMap.setOptions({map: map}); }
+                OmniMap=!OmniMap;
+                }
 
                 function showPosition(position) {
                     x.innerHTML = "Latitude: " + position.coords.latitude +
@@ -82,6 +88,9 @@
                </header>
                      <title>OmniMap - Google Fusion Tables</title>
                <iframe width="auto" height="400px" scrolling="yes" frameborder="no" src="https://fusiontables.google.com/embedviz?q=select+col2+from+1yUCKHzTjyafYp5DdzVSA5a26WiBYlyRW8JYNfdP7&amp;viz=MAP&amp;h=false&amp;lat=29.69033942255318&amp;lng=-95.36487187719592&amp;t=1&amp;z=13&amp;l=col2&amp;y=2&amp;tmplt=3&amp;hml=GEOCODABLE"></iframe>
+               <div>
+                   <input type="checkbox" checked onhange="toggleLayer10();" />
+               </div>
             </article>
 
             <article id="backend" class="panel">
